@@ -51,8 +51,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_SECRET_TOKEN }}
 
     - name: 🐳 Log in to Docker (Nexus)
-      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login c6cf-197-29-226-253.ngrok-free.app --username ${{ secrets.NEXUS_USERNAME }} --password-stdin
-
+      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login c6cf-197-29-226-253.ngrok-free.app/repository/docker-hosted --username ${{ secrets.NEXUS_USERNAME }} --password-stdin
+      
     - name: Build Docker image
       run: docker build -t c6cf-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest .
       working-directory: ./pi
