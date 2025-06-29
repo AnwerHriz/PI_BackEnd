@@ -50,9 +50,9 @@ jobs:
     #   env:
     #     SONAR_TOKEN: ${{ secrets.SONARCLOUD_SECRET_TOKEN
 
-      # Nexus Docker Registry login and push
-    - name: Login to Nexus Docker Registry
-      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login  https://0357-197-29-226-253.ngrok-free.app -u ${{ secrets.NEXUS_USERNAME }} --password-stdin      
+    - name: 🐳 Log in to Docker (Nexus)
+      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login 0357-197-29-226-253.ngrok-free.app/repository/docker-hosted --username ${{ secrets.NEXUS_USERNAME }} --password-stdin
+    
     - name: Build Docker image
       run: docker build -t 0357-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest .
       working-directory: ./pi
