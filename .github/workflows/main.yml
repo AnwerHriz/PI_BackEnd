@@ -48,14 +48,14 @@ jobs:
     #   run: mvn -B verify -DskipTests org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=ziedtuihri_PI_BackEnd
     #   working-directory: ./pi
     #   env:
-    #     SONAR_TOKEN: ${{ secrets.SONARCLOUD_SECRET_TOKEN
+    #     SONAR_TOKEN: ${{ secrets.SONARCLOUD_SECRET_TOKEN 
 
     - name: 🐳 Log in to Docker (Nexus)
-      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login 0357-197-29-226-253.ngrok-free.app/repository/docker-hosted --username ${{ secrets.NEXUS_USERNAME }} --password-stdin
+      run: echo "${{ secrets.NEXUS_PASSWORD }}" | docker login 1d2c-197-29-226-253.ngrok-free.app/repository/docker-hosted --username ${{ secrets.NEXUS_USERNAME }} --password-stdin
     
     - name: Build Docker image
-      run: docker build -t 0357-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest .
+      run: docker build -t 1d2c-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest .
       working-directory: ./pi
 
     - name: Push Docker image to Nexus
-      run: docker push 0357-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest
+      run: docker push 1d2c-197-29-226-253.ngrok-free.app/repository/docker-hosted/pi-app:latest
